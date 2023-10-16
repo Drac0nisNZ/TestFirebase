@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="app.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Firebase Example
+    <br />
+    <small>Student ID</small>
+    </h1>
+
+    <ul id="studentsList">
+        <div id="studentInfo">
+            <p>
+                Name:
+                <strong class="studentDetail"></strong>
+            </p>
+            <p>
+                Age:
+                <strong class="studentAge"></strong>
+            </p>
+            <p>
+                Email:
+                <strong class="studentEmail"></strong>
+            </p>
+        </div>
+    </ul>
+<script src="app.js"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAqGei38kGDRUcMqVXtI4n8LM_Ec-Jg7Io",
+      authDomain: "testfirebase-15d74.firebaseapp.com",
+      projectId: "testfirebase-15d74",
+      storageBucket: "testfirebase-15d74.appspot.com",
+      messagingSenderId: "541838634287",
+      appId: "1:541838634287:web:4cc61e3706dc51af6f85da"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+</body>
+</html>

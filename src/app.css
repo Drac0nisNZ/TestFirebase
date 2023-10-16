@@ -1,0 +1,40 @@
+body, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: navy;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+}
+
+h1 {
+    padding: 10px;
+    background-color: aquamarine;
+}
+
+#studentList {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    float: left;
+    border: 2px solid gold;
+}
+
+#studentList h2 {
+    padding: 10px;
+    margin: 0;
+    color: aliceblue;
+}
+
+#studentList li {
+    padding: 5px;
+    border-top: 2px solid green;
+    cursor: pointer;
+    color: white;
+    font-style: italic;
+}
+
+#studentList li:hover {
+    background: lightblue;
+}
