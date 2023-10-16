@@ -38,3 +38,13 @@ h1 {
 #studentList li:hover {
     background: lightblue;
 }
+
+#studentInfo {
+    float: left;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid blue;
+    color: antiquewhite;
+}
+
