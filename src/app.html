@@ -3,89 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="app.css"/>
     <title>Document</title>
 </head>
 <body>
-    <h1>Firebase Example
-    <br />
-    <small>Student ID</small>
-    </h1>
+  <main id="app-layout">
+    <section id="left-col">
+      <header>
+       <div class="left">
+       </div>
+       <div class="title">
+          Details
+       </div>
+       <div class="right">
+        <button class="add-btn">Add</button>
+       </div>
+      </header>
 
-    <ul id="studentsList">
-        <div id="studentInfo">
-            <p>
-                Name:
-                <strong class="studentDetail"></strong>
-            </p>
-            <p>
-                Age:
-                <strong class="studentAge"></strong>
-            </p>
-            <p>
-                Email:
-                <strong class="studentEmail"></strong>
-            </p>
+      <ul id="details-list">
+      </ul>
+    </section>
+
+    <section id="right-col">
+      <header>
+        <div>
+          <button id="back-btn">Back</button>
         </div>
-    </ul>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAqGei38kGDRUcMqVXtI4n8LM_Ec-Jg7Io",
-      authDomain: "testfirebase-15d74.firebaseapp.com",
-      projectId: "testfirebase-15d74",
-      storageBucket: "testfirebase-15d74.appspot.com",
-      messagingSenderId: "541838634287",
-      appId: "1:541838634287:web:4cc61e3706dc51af6f85da"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-  </script>
-  <script src="app.js"></script>
+        <div class="title">
+        Name
+        </div>
+      </header>
+      <div id="right-col-detail"></div>
+    </section>
+  </main>
+
+  <!--MODAL-->
+
   <div id="modal-overlay">
     <div id="modal">
-        <div class="modal-header">
-            <h2>Add Details</h2>
-        </div>
-        <ul id="error-label"></ul>
-        <div class="modal-content">
+      <div class="modal-header">
+      <h2>Add Details</h2>
+      </div>
+       <ul id="error-label"></ul>
+       <div class="modal-content">
 
-            <div class="row">
-                <div class="input-group">
-                    <label>First Name</label>
-                    <input type="text" id="firstname">
-                </div>
-                <div class="input-group">
-                    <label>Last Name</label>
-                    <input type="text" id="lastname">
-                </div>
-            </div>
+        <div class="row">
+        <div class="input-group">
+          <label>First Name</label>
+          <input type="text" id="firstname">
+        </div>
+        <div class="input-group">
+          <label>Last Name</label>
+          <input type="text" id="lastname">
+        </div>
         </div>
 
         <div class="row">
-            <div class="input-group">
-                <label>Age</label>
-                <input type="number" id="age">
-            </div>
-            <div class="input-group">
-                <label>Phone</label>
-                <input type="number" id="phone">
-            </div>
+        <div class="input-group">
+          <label>Age</label>
+          <input type="number" id="age">
+        </div>
+        <div class="input-group">
+          <label>Phone</label>
+          <input type="number" id="phone">
+        </div>
         </div>
 
         <div class="row">
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" id="email">
-            </div>
+          <div class="input-group">
+            <label for="">Email</label>
+            <input type="email" id="email">
+          </div>
         </div>
+
+       </div>
+
+       <div class="modal-footer">
+        <button class="close-btn">Close</button>
+        <button class="save-btn">Save</button>
+       </div>
+
     </div>
   </div>
+  
+  <script src="firebase-sdk.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
