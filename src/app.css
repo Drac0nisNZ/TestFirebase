@@ -167,3 +167,16 @@ input[type="email"] {
 #app-layout #right-col #back-btn {
     display: none;
 }
+
+@media only screen and (max-width: 600px) {
+    #app-layout #right-col {
+        display: none;
+    }
+    #applayout #right-col #back-btn {
+        margin: 20px 0 0 20px;
+        display: block;
+    }
+    #modal .modal-content .row {
+        flex-direction: column;
+    }
+}
