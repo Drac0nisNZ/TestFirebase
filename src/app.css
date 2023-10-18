@@ -1,50 +1,80 @@
-body, h1 {
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    background: navy;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
-}
-
-h1 {
-    padding: 10px;
-    background-color: aquamarine;
-}
-
-#studentList {
     margin: 0;
-    padding: 0;
-    width: 250px;
-    float: left;
-    border: 2px solid gold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#studentList h2 {
-    padding: 10px;
-    margin: 0;
-    color: aliceblue;
+#app-layout {
+    display: flex;
 }
 
-#studentList li {
-    padding: 5px;
-    border-top: 2px solid green;
+#app-layout #left-col {
+    flex: 1;
+}
+
+#app-layout #right-col {
+    flex: 3;
+}
+
+/*Header*/
+
+header {
+    background-color: darkblue;
+    color: blanchedalmond;
+    height: 65px;
+    display: flex;
+}
+
+header .left {
+    flex: 1;
+}
+
+header .title {
+    flex: 3;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+/*Global Style*/
+
+button {
+    margin: 5px;
+    padding: 5px 8px;
+    background: skyblue;
+    border: none;
+    color: azure;
+    font-size: 10px;
+}
+
+button:hover {
+    background-color: darkcyan;
     cursor: pointer;
-    color: white;
-    font-style: italic;
 }
 
-#studentList li:hover {
-    background: lightblue;
+/*Modal Window*/
+
+#modal-overlay {
+    background-color: darkslateblue;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
-#studentInfo {
-    float: left;
-    width: 250px;
-    margin: 10px;
-    padding: 10px;
-    border: 2px solid blue;
-    color: antiquewhite;
+#modal-overlay #modal {
+    max-width: 500px;
+    width: 100%;
+    background-color: aqua;
 }
-
