@@ -78,3 +78,39 @@ button:hover {
     width: 100%;
     background-color: aqua;
 }
+
+/*Add detais to form*/
+
+#modal .modal-header h2 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+#modal .modal-content .row {
+    display: flex;
+}
+
+#modal .modal-content .row .input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 15px;
+}
+
+input[type="text"]
+input[type="number"]
+input[type="email"] {
+    font-size: 20px;
+    height: 28px;
+    padding-left: 10px;
+    padding-right: 12px;
+    color: darkgray;
+    border: 1px solid palegoldenrod;
+}
+
+#modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 10px;
+}
