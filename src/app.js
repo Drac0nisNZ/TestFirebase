@@ -53,7 +53,7 @@ const getContacts = async () => {
 
 getContacts()
 
-//!SECTION displau contacts as list items
+//SECTION displau contacts as list items
 
 const contactList = document.getElementById("contact-list")
 
@@ -67,7 +67,74 @@ const showContacts = (contact) => {
         <div class="letter">
         ${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}
         </div>
+        </div>
+        <div class="content">
+        <div class="title">
+        ${contact.firstname} ${contact.lastname}
+        </div>
+        <div class="sub-title">${contact.email}</div>
+        </div>
+
+        <div class="action">
+        <button class="edit-user">Edit</button>
+        <button class="delete-user">Delete</button>
+        </div>
         </li>
         `
+        contactList.innerHTML += 1
     })
+}
+
+//SECTION - Click event for list item
+
+const contactListPressed = (event) => {
+    const id = event.target.closest("li").getAttribute("id")
+
+    if(event.target.className === "edit-user") {
+        editButtonPressed(id)
+    } else if (event.target.className === "delete-user") {
+        deleteButtonPressed(id)
+    } else {
+        displayContactOnDetailsView(id)
+        toggleLeftAndRightViewsOnMobile()
+    }
+}
+
+contactList.addEventListener("click", contactListPressed)
+
+//SECTION - delete button
+
+const deleteButtonPressed = async (id) => {
+
+    const isConfirmed = confirm("Are you sure you want to delete it?")
+
+    if(isConfirmed) {
+
+        try{
+            const docRef = doc(db, "contacts", id)
+            await deleteDoc(docRef)
+        
+        } catch(e) {
+            setErrorMessage(
+                "error",
+                "unable to delete the contact information!"
+            )
+            displayErrorMessage()
+        }
+    }
+}
+
+//SECTION - edit button
+
+const editButtonPressed = (id) => {
+    modalOverlay.style.display = "flex"
+    const contact = getContact(id)
+
+    firstname.value = contact.firstname
+    lastname.value = contact.lastname
+    age.value = contact.age
+    phone.value = contact.phone
+    email.value = contact.email
+
+    modalOverlay.setAttribute("contact-id", contact.id)
 }
