@@ -170,4 +170,104 @@ rightColDetail.innerHTML = `
         <div class="label">Email:</div>
         <div class="data">${contact.email}</div>
         
-        `
+`
+//NOTE Modal card
+
+const addBtn = document.querySelector('.add-btn')
+const modalOverlay = document.getElementById('modal-overlay')
+const closeBtn = document.querySelector('.close-btn')
+
+const addButtonPressed = ()  => {
+
+    modalOverlay.syle.display = "flex"
+    modalOverlay.removeAttribute("contact-id")
+    firstname.value = ""
+    lastname.value = ""
+    age.value = ""
+    phone.value = ""
+    email.value = ""
+}
+
+const closeButtonPressed = () => {
+    modalOverlay.style.display = "none"
+}
+
+const hideModal = (e) => {
+    if( e instanceof Event) {
+        if(e.target === e.currentTarget) {
+            modalOverlay.style.display = "none"
+        }
+    } else {
+        modalOverlay.style.document = "none"
+    }
+}
+
+addBtn.addEventListener("click", addButtonPressed)
+closeBtn.addEventListener("click". closeButtonPressed)
+modalOverlay.addEventListener("click". hideModal)
+
+//TODO - Validation of data
+
+const saveBtn = document.querySelector('.save-btn')
+const error = {}
+
+const firstname = document.getElementById("firstname"),
+lastname = document.getElementById("lastname"),
+age = document.getElementById("age"),
+phone = document.getElementById("phone"),
+email = document.getElementById("email")
+
+const saveButtonPressed = async () => {
+    checkRequired([firstname,lastname, email, age, phone])
+    checkEmail(email)
+    checkInputLength(age, 2) 
+    checkInputLength(phone, 15)
+    showErrorMessage(error)
+
+    if(Object.keys(error).length === 0) {
+        if(modalOverlay.getAttribute("contact-id")) {
+            //NOTE -  Update Data
+            const docRef = doc(
+                db,
+                "contacts",
+                modalOverlay.getAttribute("contact_id")
+            )
+
+            try{
+                await updateDoc(docRef, {
+                    firstname: firstname.value,
+                    lastname: lastname.value,
+                    age: age.value,
+                    phone: phone.value,
+                    email: email.value
+                })
+                hideModal()
+            } catch(e) {
+                setErrorMessage(
+                    "ERROR",
+                    "Unable to update user information, please try again later!"
+                )
+                showErrorMessage()
+            }
+        } else {
+            //TODO - add data if not provided!
+
+            try {
+                await addDoc(dbRef, {
+                    firstname: firstname.value,
+                    lastname: lastname.value,
+                    age: age.value,
+                    phone: phone.value,
+                    email: email.value
+                })
+                hideModal()
+            } catch(err) {
+                setErrorMessage(
+                    "ERROR",
+                    "Unable to update user information, please try again later!"
+                )
+                showErrorMessage()
+            }
+        }
+    }
+}
