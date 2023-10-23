@@ -13,7 +13,6 @@ const dbRef = collection(db, "contacts")
 //TODO - App view
 
 const leftCol = document.getElementById("left-col")
-const rightCol = document.getElementById("right-col")
 const backBtn = document.getElementById("back-btn")
 
 backBtn.addEventListener('click', (e) => {
@@ -138,3 +137,37 @@ const editButtonPressed = (id) => {
 
     modalOverlay.setAttribute("contact-id", contact.id)
 }
+
+//SECTION -  Display information on list item click
+const rightCol = document.getElementById('right-col')
+
+const getContact = (id) => {
+    return contacts.find((contact) => {
+        return contact.id === id
+    })
+}
+
+const displayContactOnDetailsView = (id) => {
+    const contact = getContact(id)
+}
+
+//TODO - Display on the right col title
+
+const rightColtitle = rightCol.querySelector(".title")
+rightColtitle.innerHTML = contact.firstname
+
+const rightColDetail = document.getElementById("right-col-detail")
+rightColDetail.innerHTML = `
+        <div class="label">Name:</div>
+        <div class="data">${contact.firstname} ${contact.lastname}</div>
+
+        <div class="label">Age:</div>
+        <div class="data">${contact.age}</div>
+
+        <div class="label">Phone:</div>
+        <div class="data">${contact.phone}</div>
+
+        <div class="label">Email:</div>
+        <div class="data">${contact.email}</div>
+        
+        `
