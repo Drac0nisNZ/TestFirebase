@@ -220,8 +220,8 @@ email = document.getElementById("email")
 const saveButtonPressed = async () => {
     checkRequired([firstname,lastname, email, age, phone])
     checkEmail(email)
-    checkInputLength(age, 2) 
-    checkInputLength(phone, 15)
+    checkInputLength(age, 3, 1) 
+    checkInputLength(phone, 15, 9)
     showErrorMessage(error)
 
     if(Object.keys(error).length === 0) {
@@ -269,5 +269,50 @@ const saveButtonPressed = async () => {
                 showErrorMessage()
             }
         }
+    }
+}
+
+const checkRequired = (inputArray) => {
+    inputArray.forEach((input) => {
+        if(input.valye.trim() === "") {
+            setErrorMessage(input, input.id + " is empty")
+        } else {
+            deleteErrorMessage(input)
+        }
+    })
+}
+
+const checkEmail = (input) => {
+    if(input.value.trim() !== "") {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(re.test(input.value.trim())) {
+            deleteErrorMessage(input)
+        } else {
+            showErrorMessage(input, input.id + " is invalid")
+        }
+    }
+}
+
+const checkInputLength = (input, MaxNum, MinNum) => {
+    if(input.value.trim() !== "") {
+        if(input.value.trim().lenght >= MinNum && input.value.trim().length <= MaxNum) {
+            deleteErrorMessage(input)
+        } else {
+            setErrorMessage(input, input.id + `must be between ${MinNum} and ${MaxNum} digits`)
+        }
+    }
+}
+
+const deleteErrorMessage = (input) => {
+    delete error[input.id]
+    input.style.border = "1px solid green"
+}
+
+const setErrorMessage = (input) => {
+    if(input.nodeName === "INPUT") {
+        error[input.id] = message
+        input.style.border = "1px solid red"
+    } else {
+        error[input] = message
     }
 }
