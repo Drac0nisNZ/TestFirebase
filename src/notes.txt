@@ -1,0 +1,24 @@
+functional
+object oriented
+
+single-threaded JS
+Non-blocking JS
+asynchronous JS
+
+console.log('Zero');
+setTimeout(() => console.log('One'), 0); // REQ and RES
+Promise.resolve().then(() => console.log('Two'));
+console.log('Three');
+
+Heap = Mr garbage collector
+
+const minus = function(num1, num2) {
+    return console.log (num1 - num2);
+}
+
+const sum = function(num1, num2) {
+    minus(num1, num2);
+    return console.log (num1 + num2);
+}
+
+sum(0,1);

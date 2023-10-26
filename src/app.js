@@ -308,6 +308,7 @@ const deleteErrorMessage = (input) => {
     input.style.border = "1px solid green"
 }
 
+
 const setErrorMessage = (input) => {
     if(input.nodeName === "INPUT") {
         error[input.id] = message
@@ -316,3 +317,18 @@ const setErrorMessage = (input) => {
         error[input] = message
     }
 }
+//function showErrorMessage(){} DECLARED FUNCTION
+const showErrorMessage = () => { //ANONOMOUS FUNCTION   IIFE Immediately Invoked Function Expression
+   let errorLabel = document.getElementById("error-label")
+   errorLabel.innerHTML = ""
+   for (const key in error) {
+    const li = document.createElement("li")
+    li.innerText = error[key]
+    li.style.color = "red"
+    errorLabel.appendChild(li)
+   }
+}
+
+//TODO - Save Button
+
+saveBtn.addEventListener("click", saveButtonPressed)
